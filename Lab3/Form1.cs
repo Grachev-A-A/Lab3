@@ -410,7 +410,7 @@ namespace Lab3
                         {
                             if (t % 5 != 0)
                             {
-                                if (((int)t / 5) != 0)
+                                if (((int)t / 5) != 0 || t !=1)
                                 {
                                     c = false;
                                     break;
@@ -437,11 +437,12 @@ namespace Lab3
                         {
                             if (ti % 5 != 0)
                             {
-                                if (ti / 5 != 0)
+                                if (ti / 5 != 0 || ti!=1)
                                 {
                                     c = false;
                                     break;
-                                }
+                                }if (ti == 1)
+                                    break;
                             }
                             si++;
                             ti /= 5;
