@@ -35,7 +35,8 @@ namespace Lab3
                 {
                     curentType = ArgType.Undefined;
                     incorrectArgNum = s1 == "" ? 1 : 2;
-                    MessageBox.Show("Пустое поле ввода! Аргумент № "+ incorrectArgNum + " не может быть пустым.");
+                    MessageBox.Show("Пустое поле ввода! Аргумент № "+ incorrectArgNum + " не может быть пустым.",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 if(bool.TryParse(s1, out arg1_bool) && bool.TryParse(s2, out arg2_bool))
@@ -53,11 +54,13 @@ namespace Lab3
 
                 if(bool.TryParse(s1, out arg1_bool) || int.TryParse(s1, out arg1_int)||double.TryParse(s1, out arg1_float))
                 {
-                    MessageBox.Show("Аргумент № 2 некорректен! Он не совпадает по типу с первым или не является допустимым типом (число или значение \"true\" или \"false\")!");
+                    MessageBox.Show("Аргумент № 2 некорректен! Он не совпадает по типу с первым или не является допустимым типом (число или значение \"true\" или \"false\")!",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("Аргумент № 1 некорректен! Он должен быть числом или значением \"true\" или \"false\"");
+                    MessageBox.Show("Аргумент № 1 некорректен! Он должен быть числом или значением \"true\" или \"false\"",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -66,7 +69,8 @@ namespace Lab3
                 {
                     curentType = ArgType.Undefined;
                     incorrectArgNum = 1;
-                    MessageBox.Show("Пустое поле ввода! Аргумент № 1 не может быть пустым!");
+                    MessageBox.Show("Пустое поле ввода! Аргумент № 1 не может быть пустым!",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
                 if (bool.TryParse(s1, out arg1_bool))
@@ -81,7 +85,8 @@ namespace Lab3
                 {
                     curentType = ArgType.Float; return true;
                 }
-                MessageBox.Show("Аргумент № 1 некорректен! Он должен быть числом или значением \"true\" или \"false\"");
+                MessageBox.Show("Аргумент № 1 некорректен! Он должен быть числом или значением \"true\" или \"false\"",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return false;
         }
@@ -101,7 +106,8 @@ namespace Lab3
                         drawResult(arg1_int + arg2_int, "+");
                         break;
                     case ArgType.Bool:
-                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!");
+                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }
@@ -121,7 +127,8 @@ namespace Lab3
                         drawResult(arg1_int - arg2_int, "-");
                         break;
                     case ArgType.Bool:
-                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!");
+                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }
@@ -141,7 +148,8 @@ namespace Lab3
                         drawResult(arg1_int * arg2_int, "*");
                         break;
                     case ArgType.Bool:
-                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!");
+                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }
@@ -157,7 +165,7 @@ namespace Lab3
                     case ArgType.Float:
                         if(arg2_float == 0)
                         {
-                            MessageBox.Show("Делить на 0 нельзя!");
+                            MessageBox.Show("Делить на 0 нельзя!", "Пользователь дурак!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
                         drawResult(arg1_float / arg2_float, "/");
@@ -165,13 +173,14 @@ namespace Lab3
                     case ArgType.Integer:
                         if (arg2_int == 0)
                         {
-                            MessageBox.Show("Делить на 0 нельзя!");
+                            MessageBox.Show("Делить на 0 нельзя!", "Пользователь дурак!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
                         drawResult(arg1_int / arg2_int, "/");
                         break;
                     case ArgType.Bool:
-                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!");
+                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }
@@ -187,7 +196,7 @@ namespace Lab3
                     case ArgType.Float:
                         if (arg2_float == 0)
                         {
-                            MessageBox.Show("Делить на 0 нельзя!");
+                            MessageBox.Show("Делить на 0 нельзя!", "Пользователь дурак!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
                         drawResult(arg1_float % arg2_float, "%");
@@ -195,13 +204,14 @@ namespace Lab3
                     case ArgType.Integer:
                         if (arg2_int == 0)
                         {
-                            MessageBox.Show("Делить на 0 нельзя!");
+                            MessageBox.Show("Делить на 0 нельзя!", "Пользователь дурак!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
                         drawResult(arg1_int % arg2_int, "%");
                         break;
                     case ArgType.Bool:
-                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!");
+                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }
@@ -221,7 +231,8 @@ namespace Lab3
                         drawResult(arg1_int & arg2_int, "&");
                         break;
                     case ArgType.Float:
-                        MessageBox.Show("Некорректные аргументы! Невозможно применить к дробным числам!");
+                        MessageBox.Show("Некорректные аргументы! Невозможно применить к дробным числам!",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }
@@ -241,7 +252,8 @@ namespace Lab3
                         drawResult(arg1_int | arg2_int, "|");
                         break;
                     case ArgType.Float:
-                        MessageBox.Show("Некорректные аргументы! Невозможно применить к дробным числам!");
+                        MessageBox.Show("Некорректные аргументы! Невозможно применить к дробным числам!",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }
@@ -261,7 +273,8 @@ namespace Lab3
                         drawResult(arg1_int ^ arg2_int, "^");
                         break;
                     case ArgType.Float:
-                        MessageBox.Show("Некорректные аргументы! Невозможно применить к дробным числам!");
+                        MessageBox.Show("Некорректные аргументы! Невозможно применить к дробным числам!",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }
@@ -282,7 +295,8 @@ namespace Lab3
                             drawResult(~arg1_int, "~");
                             break;
                         case ArgType.Float:
-                            MessageBox.Show("Некорректные аргументы! Невозможно применить к дробным числам!");
+                            MessageBox.Show("Некорректные аргументы! Невозможно применить к дробным числам!",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             break;
                     }
                 }
@@ -303,7 +317,8 @@ namespace Lab3
                         drawResult(arg1_int > arg2_int, ">");
                         break;
                     case ArgType.Bool:
-                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!");
+                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }
@@ -323,7 +338,8 @@ namespace Lab3
                         drawResult(arg1_int < arg2_int, "<");
                         break;
                     case ArgType.Bool:
-                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!");
+                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }
@@ -343,7 +359,8 @@ namespace Lab3
                         drawResult(arg1_int >= arg2_int, ">=");
                         break;
                     case ArgType.Bool:
-                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!");
+                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }
@@ -363,7 +380,8 @@ namespace Lab3
                         drawResult(arg1_int <= arg2_int, "<=");
                         break;
                     case ArgType.Bool:
-                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!");
+                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }
@@ -383,7 +401,8 @@ namespace Lab3
                         drawResult(arg1_int == arg2_int, "==");
                         break;
                     case ArgType.Bool:
-                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!");
+                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }
@@ -452,7 +471,8 @@ namespace Lab3
                         listBox1.Items.Add(stri);
                         break;
                     default:
-                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!");
+                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
                 
@@ -473,7 +493,8 @@ namespace Lab3
                         drawResult(Math.Atan(arg1_int), "Arctan");
                         break;
                     case ArgType.Bool:
-                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!");
+                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }
@@ -493,7 +514,8 @@ namespace Lab3
                         drawResult(Math.Acos(arg1_int), "Arccos");
                         break;
                     case ArgType.Bool:
-                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!");
+                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }
@@ -513,7 +535,8 @@ namespace Lab3
                         drawResult(Math.Log(arg1_int), "Ln");
                         break;
                     case ArgType.Bool:
-                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!");
+                        MessageBox.Show("Некорректные аргументы! Невозможно применить к логическим значениям!",
+                        "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
             }
